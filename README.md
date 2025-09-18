@@ -17,38 +17,74 @@ This project contains implementations for solving linear equation systems using 
 
 ## Folder Structure
 
-- `python/` — Python scripts for solving linear systems
+```md
+CN-UFAM/
+├── python-codes/
+│   ├── direct_methods/
+|   |   ├── GaussElimin.py
+|   │   └── LUDecomp.py
+│   ├── interactive_methods/
+|   |   ├── Jacobi.py
+|   └── └── GaussSeidel.py
+├── scilab/
+│   ├── direct_methods/
+|   |   ├── gaussSimplified_1.sce
+|   └── └── gaussElimin.sce
+├── README.md
+└── LICENSE
+```
+
+- `python-codes/` — Python scripts for solving linear systems
+    - `direct_methods/` — SLE solution process based on direct methods
+    - `iteractive_methods/` — SLE solution process based on iteractive methods
 - `scilab/` — Scilab `.sce` files for solving linear systems
+    - `direct_methods/` — SLE solution process based on direct methods
+        - `direct_method_XX.sce` — a solution example using manual solving calculations for the method
+        - `direct_method.sce` — a solution method considering the solution process presented throughout the course
 
 ---
 
 ## Python Setup & Execution
 
-### 1. Install Python
+### 1. Install Python and VSCode
 
 - **Windows/Mac/Linux:** Download and install Python from [python.org](https://www.python.org/downloads/).
+    - _**Test Python install:**_ open a terminal and execute: `python --version` _OR_ `python3 --version`
+- _(Optional)_ - Install VSCode for execution and file management from [code.visualstudio.com](https://code.visualstudio.com/Download).
 
-### 2. Install NumPy
+### 1.1. Install Python requirements
 
 Open a terminal (Command Prompt, PowerShell, or Terminal) and run:
 
 ```bash
-pip install numpy
+cd CN-UFAM/python-codes
+pip install -r requirements.txt
 ```
 
-### 3. Run Python Scripts
+> [!WARNING]
+> If on linux/mac, use the `sudo ...` option before commands!
+> If on Windows, please start the Command Prompt or PowerShell as admin user!
 
-Navigate to the `python` folder:
+### 1.3. Run Python Scripts
+
+Navigate to the `python-codes` folder:
 
 ```bash
-cd python
+cd CN-UFAM/python-codes
 ```
 
-Run a script (replace `<script_name>.py` with your file):
+Run a script (replace `<script_name>.py` with the file you desire):
 
 ```bash
 python <script_name>.py
 ```
+_OR_
+```bash
+python3 <script_name>.py
+```
+
+> [!NOTE]
+> Please observe that codes have their solution callout at the end of the script file, so change Ab matrix values before execution for the example you desire!
 
 ---
 
@@ -57,24 +93,32 @@ python <script_name>.py
 ### 1. Install Scilab
 
 - Download and install Scilab from [scilab.org](https://www.scilab.org/download/latest).
+- For Windows and Linux, observe the install for scilab-cli as well, this will ease the use of the code files in this repository.
 
 ### 2. Run `.sce` Files
 
 1. Open Scilab.
-2. Use `File > Open` to select your `.sce` file from the `scilab` folder.
+2. Use `File > Open` to select your `.sce` file from the `CN-UFAM/scilab` folder.
 3. Click `Execute` or press `F5` to run the script.
 
-Alternatively, from the Scilab console:
-
+_Alternatively, from the Scilab console:_
 ```scilab
 exec('path/to/your/script.sce');
 ```
+_OR, from command console:_
+```bash
+cd CN-UFAM/scilab/{solution-method}
+scilab -nwni -f scrip_file.sce
+```
+> [!NOTE]
+> Change {solution-method} for any of the solution method group folders inside scilab or python codes.
+> Change `script_file.sce` 
 
 ---
 
 ## Notes
 
-- Ensure you have the latest versions of Python and Scilab for best compatibility.
+- Ensure you have any versions of Python that is `>= 12.0` and the latest Scilab for best compatibility.
 - If you encounter issues, check your installation paths and environment variables.
 
 ---
